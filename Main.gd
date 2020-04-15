@@ -48,16 +48,22 @@ var countries = [
 	Country.new("Brazil", 0.14, 0.02, 0.07),
 	Country.new("Israel", 0.13, 0.0, 0.13),
 	Country.new("Australia", 0.12, 0.0, 0.55),
-	Country.new("New Zealand", 0.01, 0.0, 0.21),
+	Country.new("NewZealand", 0.01, 0.0, 0.21),
 	Country.new("Mexico", 0.08, 0.05, 0.03),
 	Country.new("Russia", 0.03, 0.17, 0.25),
 	Country.new("Chile", 0.06, 0.0, 0.23)
 ]
 
 func _ready():
+	show_vegetarians()
+
+func _percentage_to_color(percentage):
+	return Color(percentage, percentage, percentage, 1.0)
+
+func show_vegetarians():
+	for country in countries:
+		var node = get_node("World/" + country.name)
+		node.modulate = _percentage_to_color(country.vegetarians)
+
+func _process(delta):
 	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
