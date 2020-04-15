@@ -61,7 +61,7 @@ position = Vector2( 1378.98, 321.977 )
 texture = ExtResource( 10 )
 script = ExtResource( 22 )
 
-[node name="Finnland" type="Sprite" parent="World"]
+[node name="Finland" type="Sprite" parent="World"]
 position = Vector2( 1474.22, 254.609 )
 texture = ExtResource( 3 )
 script = ExtResource( 22 )
