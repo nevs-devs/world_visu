@@ -57,13 +57,13 @@ var countries = [
 func _ready():
 	show_vegetarians()
 
-func _percentage_to_color(percentage):
-	return Color(percentage, percentage, percentage, 1.0)
+func _percentage_to_color(percentage, base_color):
+	return base_color * percentage
 
 func show_vegetarians():
 	for country in countries:
 		var node = get_node("World/" + country.name)
-		node.modulate = _percentage_to_color(country.vegetarians)
+		node.modulate = _percentage_to_color(country.vegetarians, Color.green)
 
 func _process(delta):
 	pass
