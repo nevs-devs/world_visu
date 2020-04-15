@@ -1,12 +1,77 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://world_map.png" type="Texture" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
+[ext_resource path="res://countries/finnland.png" type="Texture" id=3]
+[ext_resource path="res://countries/australia.png" type="Texture" id=4]
+[ext_resource path="res://countries/brazil.png" type="Texture" id=5]
+[ext_resource path="res://countries/belgium.png" type="Texture" id=6]
+[ext_resource path="res://countries/chile.png" type="Texture" id=7]
+[ext_resource path="res://countries/india.png" type="Texture" id=8]
+[ext_resource path="res://countries/china.png" type="Texture" id=9]
+[ext_resource path="res://countries/denmark.png" type="Texture" id=10]
+[ext_resource path="res://countries/germany.png" type="Texture" id=11]
+[ext_resource path="res://countries/netherlands.png" type="Texture" id=12]
+[ext_resource path="res://countries/israel.png" type="Texture" id=13]
+[ext_resource path="res://countries/japan.png" type="Texture" id=14]
+[ext_resource path="res://countries/mexico.png" type="Texture" id=15]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 513.422, 284.607 )
-scale = Vector2( 0.369633, 0.369633 )
+[node name="World" type="Sprite" parent="."]
+scale = Vector2( 0.372, 0.37 )
 texture = ExtResource( 1 )
+centered = false
+
+[node name="australia" type="Sprite" parent="World"]
+position = Vector2( 2287.25, 1040.16 )
+texture = ExtResource( 4 )
+
+[node name="belgium" type="Sprite" parent="World"]
+position = Vector2( 1340.79, 367.196 )
+texture = ExtResource( 6 )
+
+[node name="brazil" type="Sprite" parent="World"]
+position = Vector2( 897.13, 924.808 )
+texture = ExtResource( 5 )
+
+[node name="chile" type="Sprite" parent="World"]
+position = Vector2( 798.468, 1095.11 )
+texture = ExtResource( 7 )
+
+[node name="china" type="Sprite" parent="World"]
+position = Vector2( 2023.22, 485.743 )
+texture = ExtResource( 9 )
+
+[node name="denmark" type="Sprite" parent="World"]
+position = Vector2( 1378.98, 321.977 )
+texture = ExtResource( 10 )
+
+[node name="finnland" type="Sprite" parent="World"]
+position = Vector2( 1474.22, 254.609 )
+texture = ExtResource( 3 )
+
+[node name="germany" type="Sprite" parent="World"]
+position = Vector2( 1380.03, 365.09 )
+texture = ExtResource( 11 )
+
+[node name="india" type="Sprite" parent="World"]
+position = Vector2( 1888.57, 616.542 )
+texture = ExtResource( 8 )
+
+[node name="israel" type="Sprite" parent="World"]
+position = Vector2( 1559.11, 536.697 )
+texture = ExtResource( 13 )
+
+[node name="japan" type="Sprite" parent="World"]
+position = Vector2( 2275.72, 469.769 )
+texture = ExtResource( 14 )
+
+[node name="mexico" type="Sprite" parent="World"]
+position = Vector2( 551.956, 599.816 )
+texture = ExtResource( 15 )
+
+[node name="netherlands" type="Sprite" parent="World"]
+position = Vector2( 1348.98, 354.741 )
+texture = ExtResource( 12 )
