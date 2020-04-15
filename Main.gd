@@ -25,11 +25,11 @@ class Country:
 	var nuclear_power
 	var bicycles
 
-	func _init(name, vegetarians, nuclear_power, bicycles):
-		self.name = name
-		self.vegetarians = vegetarians
-		self.nuclear_power = nuclear_power
-		self.bicycles = bicycles
+	func _init(name_arg, vegetarians_arg, nuclear_power_arg, bicycles_arg):
+		self.name = name_arg
+		self.vegetarians = vegetarians_arg
+		self.nuclear_power = nuclear_power_arg
+		self.bicycles = bicycles_arg
 
 # Country	Percentage Vegetarians	Nuclear Power	Bicycle Drivers
 var countries = [
@@ -55,17 +55,40 @@ var countries = [
 ]
 
 func _ready():
-	show_vegetarians()
+	show_bicycle_drivers()
 
 func _percentage_to_color(percentage, base_color):
 	var c = base_color * percentage
 	c.a = 1.0
 	return c
 
-func show_vegetarians():
-	for country in countries:
-		var node = get_node("World/" + country.name)
-		node.modulate = _percentage_to_color(country.vegetarians, Color.green)
+func _show_percentage(percentages, base_color):
+	var min_percentage = 1.0
+	var max_percentage = 0.0
+	for p in percentages:
+		min_percentage = min(min_percentage, p)
+		max_percentage = max(max_percentage, p)
 
-func _process(delta):
-	pass
+	for i in range(len(percentages)):
+		var country = countries[i]
+		var node = get_node("World/" + country.name)
+		var percentage = range_lerp(percentages[i], min_percentage, max_percentage, 0.0, 1.0)
+		node.modulate = _percentage_to_color(percentage, base_color)
+
+func show_vegetarians():
+	var percentages = []
+	for country in countries:
+		percentages.append(country.vegetarians)
+	_show_percentage(percentages, Color.green)
+
+func show_nuclear_power():
+	var percentages = []
+	for country in countries:
+		percentages.append(country.nuclear_power)
+	_show_percentage(percentages, Color.yellow)
+
+func show_bicycle_drivers():
+	var percentages = []
+	for country in countries:
+		percentages.append(country.bicycles)
+	_show_percentage(percentages, Color.red)
