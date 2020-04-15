@@ -58,7 +58,9 @@ func _ready():
 	show_vegetarians()
 
 func _percentage_to_color(percentage, base_color):
-	return base_color * percentage
+	var c = base_color * percentage
+	c.a = 1.0
+	return c
 
 func show_vegetarians():
 	for country in countries:
