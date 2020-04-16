@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://world_map.png" type="Texture" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -24,6 +24,9 @@
 [ext_resource path="res://select_country.gd" type="Script" id=22]
 [ext_resource path="res://Lato-Regular.ttf" type="DynamicFontData" id=23]
 [ext_resource path="res://new_font.tres" type="DynamicFontData" id=24]
+[ext_resource path="res://countries/canada.png" type="Texture" id=25]
+[ext_resource path="res://countries/france.png" type="Texture" id=26]
+[ext_resource path="res://countries/spain.png" type="Texture" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -135,6 +138,18 @@ script = ExtResource( 22 )
 position = Vector2( 556.005, 397.926 )
 texture = ExtResource( 21 )
 script = ExtResource( 22 )
+
+[node name="Canada" type="Sprite" parent="World"]
+position = Vector2( 755.377, 286.486 )
+texture = ExtResource( 25 )
+
+[node name="France" type="Sprite" parent="World"]
+position = Vector2( 1321, 402 )
+texture = ExtResource( 26 )
+
+[node name="Spain" type="Sprite" parent="World"]
+position = Vector2( 1286.33, 460 )
+texture = ExtResource( 27 )
 
 [node name="MenuButton" type="MenuButton" parent="."]
 margin_left = 83.7716
