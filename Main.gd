@@ -98,13 +98,13 @@ func show_nuclear_power():
 	var percentages = []
 	for country in countries:
 		percentages.append(country.nuclear_power)
-	_show_percentage(percentages, Color(1.0, 1.0, 1.0), Color(1.0, 1.0, 0.0))
+	_show_percentage(percentages, Color.white, Color(1.0, 0.0, 0.0))
 
 func show_bicycle_drivers():
 	var percentages = []
 	for country in countries:
 		percentages.append(country.bicycles)
-	_show_percentage(percentages, Color.red, Color.white)
+	_show_percentage(percentages, Color.white, Color.indigo)
 	
 func _on_popup_id_pressed(id: int):
 	if _selected_id != id:
