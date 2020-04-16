@@ -54,9 +54,15 @@ var countries = [
 	Country.new("Chile", 0.06, 0.0, 0.23)
 ]
 
-func _ready():
-	show_bicycle_drivers()
+var _selected_id: int = -1
 
+func _ready():
+	$MenuButton.get_popup().add_item("vegetarians", 0)
+	$MenuButton.get_popup().add_item("nuclear_power", 1)
+	$MenuButton.get_popup().add_item("bicycles", 2)
+	$MenuButton.get_popup().connect("id_pressed", self, "_on_popup_id_pressed")
+	_on_popup_id_pressed(0)
+	
 func _percentage_to_color(percentage, base_color):
 	var c = base_color * percentage
 	c.a = 1.0
@@ -92,3 +98,13 @@ func show_bicycle_drivers():
 	for country in countries:
 		percentages.append(country.bicycles)
 	_show_percentage(percentages, Color.red)
+	
+func _on_popup_id_pressed(id: int):
+	if _selected_id != id:
+		_selected_id = id
+		match _selected_id:
+			0: show_vegetarians()
+			1: show_bicycle_drivers()
+			2: show_nuclear_power()
+			
+		$MenuButton.text = $MenuButton.get_popup().get_item_text(id)

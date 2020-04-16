@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://world_map.png" type="Texture" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -22,6 +22,16 @@
 [ext_resource path="res://countries/switzerland.png" type="Texture" id=20]
 [ext_resource path="res://countries/usa.png" type="Texture" id=21]
 [ext_resource path="res://select_country.gd" type="Script" id=22]
+[ext_resource path="res://Lato-Regular.ttf" type="DynamicFontData" id=23]
+[ext_resource path="res://new_font.tres" type="DynamicFontData" id=24]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+font_data = ExtResource( 23 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+font_data = ExtResource( 24 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -125,3 +135,26 @@ script = ExtResource( 22 )
 position = Vector2( 556.005, 397.926 )
 texture = ExtResource( 21 )
 script = ExtResource( 22 )
+
+[node name="MenuButton" type="MenuButton" parent="."]
+margin_left = 83.7716
+margin_top = 4.9965
+margin_right = 253.772
+margin_bottom = 37.9965
+custom_fonts/font = SubResource( 1 )
+text = "vegetarians"
+align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 11.5459
+margin_top = 8.48118
+margin_right = 149.546
+margin_bottom = 22.4812
+custom_fonts/font = SubResource( 2 )
+text = "Select:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
