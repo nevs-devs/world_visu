@@ -58,14 +58,19 @@ var countries = [
 ]
 
 var _selected_id: int = -1
+var _description_texts: Array = [
+	"the number of motorised vehicles per capita",
+	"percentage of people who live an only vegetarian life style",
+	"percentage share of energy supply from nuclear power"
+]
 
 func _ready():
 	$MenuButton.get_popup().add_item("vegetarians", 0)
 	$MenuButton.get_popup().add_item("nuclear_power", 1)
-	$MenuButton.get_popup().add_item("bicycles", 2)
+	$MenuButton.get_popup().add_item("car", 2)
 	$MenuButton.get_popup().connect("id_pressed", self, "_on_popup_id_pressed")
 	_on_popup_id_pressed(0)
-	
+
 func _percentage_to_color(percentage, min_color, max_color):
 	var min_color_vec = Vector3(min_color.r, min_color.g, min_color.b)
 	var max_color_vec = Vector3(max_color.r, max_color.g, max_color.b)
@@ -111,4 +116,6 @@ func _on_popup_id_pressed(id: int):
 			0: show_vegetarians()
 			1: show_nuclear_power()
 			2: show_motor_vehicles()
+		
+		$Description.text = _description_texts[id]
 		$MenuButton.text = $MenuButton.get_popup().get_item_text(id)
