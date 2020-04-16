@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://world_map.png" type="Texture" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -26,18 +26,35 @@
 [ext_resource path="res://new_font.tres" type="DynamicFontData" id=24]
 
 [sub_resource type="DynamicFont" id=1]
-size = 22
+size = 18
 font_data = ExtResource( 23 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 22
 font_data = ExtResource( 24 )
 
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 24 )
+
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1
+offset = Vector2( 512, 286 )
+current = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1023.0
+margin_bottom = 571.0
+color = Color( 0.0313726, 0.0313726, 0.211765, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="World" type="Sprite" parent="."]
-scale = Vector2( 0.372, 0.37 )
+position = Vector2( 89.125, 51.5196 )
+scale = Vector2( 0.331448, 0.329666 )
 texture = ExtResource( 1 )
 centered = false
 
@@ -132,17 +149,18 @@ texture = ExtResource( 20 )
 script = ExtResource( 22 )
 
 [node name="USA" type="Sprite" parent="World"]
-position = Vector2( 556.005, 397.926 )
+position = Vector2( 554.625, 397.926 )
 texture = ExtResource( 21 )
 script = ExtResource( 22 )
 
 [node name="MenuButton" type="MenuButton" parent="."]
-margin_left = 83.7716
-margin_top = 4.9965
-margin_right = 253.772
-margin_bottom = 37.9965
+margin_left = 84.0
+margin_top = 5.0
+margin_right = 201.0
+margin_bottom = 38.0
 custom_fonts/font = SubResource( 1 )
 text = "vegetarians"
+flat = false
 align = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,9 +170,23 @@ __meta__ = {
 margin_left = 11.5459
 margin_top = 8.48118
 margin_right = 149.546
-margin_bottom = 22.4812
+margin_bottom = 35.4812
+rect_pivot_offset = Vector2( 107.454, 43.0384 )
 custom_fonts/font = SubResource( 2 )
 text = "Select:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="."]
+margin_left = 12.0
+margin_top = 41.0
+margin_right = 211.0
+margin_bottom = 150.0
+rect_pivot_offset = Vector2( 107.454, 43.0384 )
+custom_fonts/font = SubResource( 3 )
+text = "Text"
+autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
