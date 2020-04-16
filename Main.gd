@@ -59,15 +59,15 @@ var countries = [
 
 var _selected_id: int = -1
 var _description_texts: Array = [
-	"the number of motorised vehicles per capita",
-	"percentage of people who live an only vegetarian life style",
-	"percentage share of energy supply from nuclear power"
+	"Percentage of people who live an only vegetarian life style.",
+	"Percentage share of energy supply from nuclear power.",
+	"The number of motorised vehicles per capita."
 ]
 
 func _ready():
-	$MenuButton.get_popup().add_item("vegetarians", 0)
-	$MenuButton.get_popup().add_item("nuclear_power", 1)
-	$MenuButton.get_popup().add_item("car", 2)
+	$MenuButton.get_popup().add_item("Vegetarians", 0)
+	$MenuButton.get_popup().add_item("Nuclear Power", 1)
+	$MenuButton.get_popup().add_item("Car", 2)
 	$MenuButton.get_popup().connect("id_pressed", self, "_on_popup_id_pressed")
 	_on_popup_id_pressed(0)
 
@@ -90,6 +90,9 @@ func _show_percentage(percentages, min_color, max_color):
 		var node = get_node("World/" + country.name)
 		var percentage = range_lerp(percentages[i], min_percentage, max_percentage, 0.0, 1.0)
 		node.modulate = _percentage_to_color(percentage, min_color, max_color)
+		
+		$MaxColor.modulate = max_color
+		$MinColor.modulate = min_color
 
 func show_vegetarians():
 	var percentages = []
