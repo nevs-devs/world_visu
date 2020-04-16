@@ -13,8 +13,10 @@ results = np.array([
 real = np.array([3.10, 4.17, 1.13, 4.66, 1.11, 1.10])
 
 xss = []
-for result in results:
+for i, result in enumerate(results):
     xs = result / real
+    print('test person {} mean x: {}'.format(i, np.mean(xs)))
+    print('test person {} std  x: {}'.format(i, np.std(xs)))
     xss.append(xs)
 
 xss_np = np.array(xss)
