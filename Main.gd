@@ -60,14 +60,14 @@ var countries = [
 var _selected_id: int = -1
 var _description_texts: Array = [
 	"Percentage of people who live an only vegetarian life style.",
-	"Percentage share of energy supply from nuclear power.",
+	"Percentage share of total energy use from nuclear power.",
 	"The number of motorised vehicles per capita."
 ]
 
 func _ready():
 	$MenuButton.get_popup().add_item("Vegetarians", 0)
 	$MenuButton.get_popup().add_item("Nuclear Power", 1)
-	$MenuButton.get_popup().add_item("Car", 2)
+	$MenuButton.get_popup().add_item("Motorized Vehicles", 2)
 	$MenuButton.get_popup().connect("id_pressed", self, "_on_popup_id_pressed")
 	_on_popup_id_pressed(0)
 
