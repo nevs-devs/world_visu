@@ -63,12 +63,14 @@ func _ready():
 	$MenuButton.get_popup().connect("id_pressed", self, "_on_popup_id_pressed")
 	_on_popup_id_pressed(0)
 	
-func _percentage_to_color(percentage, base_color):
-	var c = base_color * percentage
-	c.a = 1.0
-	return c
+func _percentage_to_color(percentage, min_color, max_color):
+	var min_color_vec = Vector3(min_color.r, min_color.g, min_color.b)
+	var max_color_vec = Vector3(max_color.r, max_color.g, max_color.b)
+	var color_change_vec = max_color_vec - min_color_vec
+	var new_color = min_color_vec + color_change_vec * percentage
+	return Color(new_color.x, new_color.y, new_color.z, 1.0)
 
-func _show_percentage(percentages, base_color):
+func _show_percentage(percentages, min_color, max_color):
 	var min_percentage = 1.0
 	var max_percentage = 0.0
 	for p in percentages:
@@ -79,25 +81,25 @@ func _show_percentage(percentages, base_color):
 		var country = countries[i]
 		var node = get_node("World/" + country.name)
 		var percentage = range_lerp(percentages[i], min_percentage, max_percentage, 0.0, 1.0)
-		node.modulate = _percentage_to_color(percentage, base_color)
+		node.modulate = _percentage_to_color(percentage, min_color, max_color)
 
 func show_vegetarians():
 	var percentages = []
 	for country in countries:
 		percentages.append(country.vegetarians)
-	_show_percentage(percentages, Color.green)
+	_show_percentage(percentages, Color(1.0, 1.0, 1.0), Color(0.0, 0.7, 0.0))
 
 func show_nuclear_power():
 	var percentages = []
 	for country in countries:
 		percentages.append(country.nuclear_power)
-	_show_percentage(percentages, Color.yellow)
+	_show_percentage(percentages, Color(1.0, 1.0, 1.0), Color(1.0, 1.0, 0.0))
 
 func show_bicycle_drivers():
 	var percentages = []
 	for country in countries:
 		percentages.append(country.bicycles)
-	_show_percentage(percentages, Color.red)
+	_show_percentage(percentages, Color.red, Color.white)
 	
 func _on_popup_id_pressed(id: int):
 	if _selected_id != id:
